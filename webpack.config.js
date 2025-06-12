@@ -10,7 +10,10 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin({})
+        new HtmlWebpackPlugin({
+            template: './src/index.pug',
+            filename: 'index.html',
+        })
     ],
     module: {
         rules: [
