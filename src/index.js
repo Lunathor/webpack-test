@@ -1,1 +1,1 @@
-document.write('hello, webpack! \n');
+document.write('hello, world! \n');
