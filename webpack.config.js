@@ -27,6 +27,15 @@ module.exports = {
                         esModule: true,
                     }
                 }, 'css-loader'],
+            },
+            {
+                test: /\.pug$/,
+                use: [{
+                    loader: 'pug-loader',
+                    options: {
+                        pretty: true,
+                    }
+                }]
             }
         ]
     }
