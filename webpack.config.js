@@ -1,14 +1,18 @@
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssWebpackMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/new.ts',
     mode: 'development',
     output: {
-        path: __dirname + '/dist',
+        path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', 'json'],
     },
     plugins: [
         new MiniCssExtractPlugin(),
@@ -65,6 +69,11 @@ module.exports = {
                         }
                     }
                 ],
+            },
+            {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             }
         ]
     }
