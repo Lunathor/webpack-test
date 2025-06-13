@@ -5,11 +5,10 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssWebpackMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-    entry: './src/new.ts',
-    mode: 'development',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
+        clean: true,
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', 'json'],
