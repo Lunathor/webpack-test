@@ -13,6 +13,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.pug',
             filename: 'index.html',
+            minify: false,  // Полное отключение минификации
+            cache: false,    // Отключаем кеширование для разработки
+            inject: true,
         })
     ],
     module: {
@@ -33,12 +36,28 @@ module.exports = {
             },
             {
                 test: /\.pug$/,
-                use: [{
-                    loader: 'pug-loader',
-                    options: {
-                        pretty: true,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            esModule: false,
+                            minimize: {
+                                collapseWhitespace: false,
+                                removeComments: false,
+                                removeRedundantAttributes: false,
+                                removeScriptTypeAttributes: false,
+                                removeStyleLinkTypeAttributes: false,
+                                useShortDoctype: false,
+                            },
+                        }
+                    },
+                    {
+                        loader: 'pug-plain-loader',
+                        options: {
+                            pretty: true,
+                        }
                     }
-                }]
+                ],
             }
         ]
     }
