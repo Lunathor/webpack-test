@@ -1,5 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const CssWebpackMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -16,8 +18,13 @@ module.exports = {
             minify: false,  // Полное отключение минификации
             cache: false,    // Отключаем кеширование для разработки
             inject: true,
-        })
+        }),
+        new TerserWebpackPlugin(),
+        new CssWebpackMinimizerPlugin(),
     ],
+    optimization: {
+        minimizer: [new TerserWebpackPlugin(), new CssWebpackMinimizerPlugin()],
+    },
     module: {
         rules: [
             {
