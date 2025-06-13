@@ -9,16 +9,22 @@
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
-    "server": "json-server --watch db.json --port 3001"
+    "server": "json-server --watch db.json --port 3001",
+    "prepare": "husky install",
+    "lint": "eslint . --config eslint.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
+    "@eslint/js": "^9.29.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "eslint": "^9.29.0",
+    "globals": "^16.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.6.3",
     "husky": "^9.1.7",
@@ -43,7 +49,7 @@
     "html-loader/minimize-html-webpack-plugin": "false"
   },
   "lint-staged": {
-    "*.{ts,js}": "eslint --fix",
+    "*.{js,ts}": "eslint --fix --config eslint.config.js",
     "*.css": "stylelint --fix",
     "*.{json,md}": "prettier --write"
   }
