@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,KACI,kBACJ,CAEA,IACI,kBACJ","sources":["webpack://webpack-test/./src/style.css"],"sourcesContent":["body{\r\n    background: #ff299c;\r\n}\r\n\r\ndiv{\r\n    margin-bottom: 10px;\r\n}"],"names":[],"sourceRoot":""}

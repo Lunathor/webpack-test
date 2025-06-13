@@ -1,6 +1,7 @@
 import * as math from "./math";
 import './style.css';
 const multiply = (a) => a * 8;
+const test = 'unused variable'
 const output = (text) => {
   const div = document.createElement('div');
   div.textContent = text;
